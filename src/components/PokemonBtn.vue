@@ -1,0 +1,35 @@
+<template>
+  <button class="button btn-prev" @click="click(inc)">{{ caption }}</button>
+</template>
+
+<script>
+export default {
+  name: 'PokemonBtn',
+  props: ['caption', 'inc'],
+  methods: {
+    click(num) {
+      this.$emit('click', { num });
+    },
+  },
+};
+</script>
+
+<style scoped>
+.button {
+  width: 50%;
+  padding: 4%;
+  border: 2px solid #000;
+  border-radius: 5px;
+  font-size: clamp(8px, 5vw, 1rem);
+  font-weight: 600;
+  color: #fff;
+  background-color: #444;
+  cursor: pointer;
+  box-shadow: -2px 3px 0 #222, -4px 6px #000;
+}
+
+.button:active {
+  box-shadow: inset -4px 4px 0 #222;
+  font-size: 0.9rem;
+}
+</style>
